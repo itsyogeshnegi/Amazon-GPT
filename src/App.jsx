@@ -1,9 +1,17 @@
 import React from "react";
-
+import SignIn from "./Pages/SignIn/SignIn";
+import {
+  createBrowserRouter,
+  Route,
+  RouterProvider,
+  Routes,
+} from "react-router-dom";
 function App() {
+  const router = createBrowserRouter([{ path: "/", element: <SignIn/> }]);
+
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <RouterProvider router={router} />
     </>
   );
 }
