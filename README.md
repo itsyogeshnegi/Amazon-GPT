@@ -5,6 +5,5 @@ Amazon-GPT Setup
 2. Using Tailwind CSS, Redux & Toolkit, 
 3. Firebase setup & auth.
 4. React Router Dom setup.
-5. Login page & Sign up Page.
-6.
+5. Tostify Npm.
 

@@ -1,5 +1,6 @@
 import React from "react";
 import SignIn from "./Pages/SignIn/SignIn";
+import HomePage from "./Pages/HomePage/HomePage";
 import {
   createBrowserRouter,
   Route,
@@ -7,7 +8,10 @@ import {
   Routes,
 } from "react-router-dom";
 function App() {
-  const router = createBrowserRouter([{ path: "/", element: <SignIn/> }]);
+  const router = createBrowserRouter([
+    { path: "/", element: <SignIn /> },
+    { path: "/Home", element: <HomePage /> },
+  ]);
 
   return (
     <>
