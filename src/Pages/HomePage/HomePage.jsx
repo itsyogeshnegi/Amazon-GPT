@@ -8,7 +8,7 @@ const HomePage = () => {
       <NavBar />
       <main className="max-w-screen-2xl mx-auto flex flex-col items-center justify-center">
         <Banner />
-        {/* <ProductFeed /> */}
+        <ProductFeed />
       </main>
     </div>
   );

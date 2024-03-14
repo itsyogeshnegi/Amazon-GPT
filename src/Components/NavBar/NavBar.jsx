@@ -3,7 +3,7 @@ import React from "react";
 const NavBar = () => {
   return (
     <>
-      <div className="h-14 w-screen bg-slate-900 flex items-center justify-around">
+      <div className="h-14 w-[100%] bg-slate-900 flex items-center justify-around">
         <div className="h-full flex items-center cursor-pointer">
           <img src="/Logos/amazonWhiteLogo.webp" className="h-[55%]" />
         </div>
