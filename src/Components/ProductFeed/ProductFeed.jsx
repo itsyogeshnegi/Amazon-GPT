@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import useGetProducts from "../../customHooks/useGetProducts";
-import CurrencyFormat from "react-currency-format";
 
 const ProductFeed = () => {
   const products = useGetProducts(); // Fetch products using the custom hook
@@ -59,12 +58,7 @@ const ProductFeed = () => {
           </div>
           <div className="w-[100%]">
             <p className="text-base font-bold mt-2">
-              <CurrencyFormat
-                value={product.price}
-                displayType={"text"}
-                thousandSeparator={true}
-                prefix={"$"}
-              />
+              ${product.price}
             </p>
           </div>
           <div className="w-full flex justify-center items-center">
