@@ -6,17 +6,25 @@ const SignIn = () => {
       <div className="h-96 w-96 border-2 flex flex-col justify-center items-center bg-slate-100 rounded-xl">
         <img src="/Logos/amazonLogo.png" className="h-16" />
         <div className="flex flex-col h-2/5 w-full justify-center items-center">
-          <input type="text"  className="my-3 h-10 w-2/3 border-2 rounded-md text-center"  placeholder="Email-ID" />
+          <input
+            type="text"
+            className="my-3 h-10 w-2/3 border-2 rounded-md text-center"
+            placeholder="Email-ID"
+          />
           <input
             type="password"
             className="my-3 h-10 w-2/3 border-2 rounded-md text-center"
             placeholder="Password"
-
           />
         </div>
-        <button className="h-9 bg-amber-300 w-64 rounded-xl text-xl font-semibold hover:bg-amber-500">
+        <button className="h-9 bg-amber-300 w-52  text-xl font-bold hover:bg-amber-500">
           Sign In
         </button>
+        <div>
+          <button className="h-9 bg-white w-64 mt-5 text-md font-semibold hover:border-black border-2">
+            Create your Amazon account
+          </button>
+        </div>
       </div>
     </div>
   );
