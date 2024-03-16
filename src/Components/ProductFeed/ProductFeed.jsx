@@ -79,6 +79,94 @@ const ProductFeed = () => {
               <img src={product.image} className="h-[100%] mix-blend-darken " />
             </div>
             <div className="w-full flex justify-start h-[30%]">
+              <p className="text-sm font-semibold px-2">{product.title}</p>
+            </div>
+            <div>
+              <div>
+                <p className="text-sm text-gray-600 text-start">
+                  {truncateDescription(product.description, 10)}
+                </p>
+              </div>
+              <span className="flex justify-start items-start w-full">
+                {Array(rating)
+                  .fill()
+                  .map((_, i) => {
+                    return (
+                      <i
+                        key={i}
+                        className="fa-solid fa-star text-yellow-400"></i>
+                    );
+                  })}
+              </span>
+            </div>
+            <div className="w-[100%]">
+              <p className="text-base font-bold mt-2">${product.price}</p>
+            </div>
+            <div className="w-full flex justify-center items-center">
+              <button className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
+                Add to basket
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="w-full h-[250px] flex justify-center items-center">
+        <img
+          src="/Banners/bannerFive.jpg"
+          className=" h-[100%] w-[full] max-md:hidden"
+        />
+        {productData.slice(11, 12).map(product => (
+          <div
+            key={product.id}
+            className="h-[250px] w-64 border-2 flex flex-col justify-center items-center ml-4 py-1 px-3 bg-white z-30">
+            <div className="h-[35%] w-full flex justify-center items-center">
+              <img src={product.image} className="h-[100%] mix-blend-darken " />
+            </div>
+            {/* <div className="w-full flex justify-start h-[30%]">
+              <p className="text-sm font-semibold px-2">
+                {truncateDescription(product.title, 10)}
+              </p>
+            </div> */}
+            <div>
+              <div>
+                <p className="text-sm text-gray-600 text-start">
+                  {truncateDescription(product.description, 5)}
+                </p>
+              </div>
+              <span className="flex justify-start items-start w-full">
+                {Array(rating)
+                  .fill()
+                  .map((_, i) => {
+                    return (
+                      <i
+                        key={i}
+                        className="fa-solid fa-star text-yellow-400"></i>
+                    );
+                  })}
+              </span>
+            </div>
+            <div className="w-[100%]">
+              <p className="text-base font-bold mt-2">${product.price}</p>
+            </div>
+            <div className="w-full flex justify-center items-center">
+              <button className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
+                Add to basket
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="w-[100%] h-auto p-5 flex justify-center items-center flex-wrap">
+        {productData.slice(13, 17).map(product => (
+          <div
+            key={product.id}
+            className="h-[350px] w-64 border-2 flex flex-col justify-center items-center m-2 py-5 px-3 bg-white z-30">
+            <div className="h-[35%] w-full flex justify-center items-center">
+              <img src={product.image} className="h-[100%] mix-blend-darken " />
+            </div>
+            <div className="w-full flex justify-start h-[30%]">
               <p className="text-sm font-semibold px-2">
                 {truncateDescription(product.title, 10)}
               </p>
@@ -113,55 +201,11 @@ const ProductFeed = () => {
         ))}
       </div>
 
-      <div className="w-full h-[250px] flex justify-center items-center">
-        <img src="/Banners/bannerFive.jpg" className=" h-[100%] w-[full]" />
-        {productData.slice(11, 12).map(product => (
-          <div
-            key={product.id}
-            className="h-[250px] w-80 border-2 flex flex-col justify-center items-center ml-4 py-1 px-3 bg-white z-30">
-            <div className="h-[35%] w-full flex justify-center items-center">
-              <img src={product.image} className="h-[100%] mix-blend-darken " />
-            </div>
-            <div className="w-full flex justify-start h-[30%]">
-              <p className="text-sm font-semibold px-2">
-                {truncateDescription(product.title, 10)}
-              </p>
-            </div>
-            <div>
-              <div>
-                <p className="text-sm text-gray-600 text-start">
-                  {truncateDescription(product.description, 5)}
-                </p>
-              </div>
-              <span className="flex justify-start items-start w-full">
-                {Array(rating)
-                  .fill()
-                  .map((_, i) => {
-                    return (
-                      <i
-                        key={i}
-                        className="fa-solid fa-star text-yellow-400"></i>
-                    );
-                  })}
-              </span>
-            </div>
-            <div className="w-[100%]">
-              <p className="text-base font-bold mt-2">${product.price}</p>
-            </div>
-            <div className="w-full flex justify-center items-center">
-              <button className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
-                Add to basket
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-
       <div className="w-[100%] h-auto p-5 flex justify-center items-center flex-wrap">
-        {productData.slice(14, 18).map(product => (
+        {productData.slice(17, 20).map(product => (
           <div
             key={product.id}
-            className="h-[350px] w-64 border-2 flex flex-col justify-center items-center m-2 py-5 px-3 bg-white z-30">
+            className="h-[350px] border-2 w-[350px] flex flex-col justify-center items-center m-2 py-5 px-3 bg-white z-30">
             <div className="h-[35%] w-full flex justify-center items-center">
               <img src={product.image} className="h-[100%] mix-blend-darken " />
             </div>

@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../../Components/NavBar/NavBar";
 import Banner from "../../Components/Banner/Banner";
 import ProductFeed from "../../Components/ProductFeed/ProductFeed";
+import Footer from "../../Components/Footer/Footer";
 const HomePage = () => {
   return (
     <div className="bg-gray-100">
@@ -10,6 +11,7 @@ const HomePage = () => {
         <Banner />
         <ProductFeed />
       </main>
+      <Footer />
     </div>
   );
 };
