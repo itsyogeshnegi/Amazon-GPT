@@ -3,12 +3,12 @@ import "react-toastify/dist/ReactToastify.css";
 import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
 import HomePage from "./Pages/HomePage/HomePage";
+import Cart from "./Pages/Cart/Cart";
 import { Protected } from "./utils/Protected";
 import { AuthContext } from "./utils/AuthContext";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { store } from "../src/Store/Store";
+import { Provider } from "react-redux";
 function App() {
   const router = createBrowserRouter([
     { path: "/", element: <SignIn /> },
@@ -21,13 +21,23 @@ function App() {
         </Protected>
       ),
     },
+    {
+      path: "/cart",
+      element: (
+        <Protected>
+          <Cart />
+        </Protected>
+      ),
+    },
   ]);
 
   return (
     <>
-      <AuthContext>
-        <RouterProvider router={router} />
-      </AuthContext>
+      <Provider store={store}>
+        <AuthContext>
+          <RouterProvider router={router} />
+        </AuthContext>
+      </Provider>
     </>
   );
 }

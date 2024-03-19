@@ -59,7 +59,7 @@ const ProductFeed = () => {
               </span>
             </div>
             <div className="w-[100%]">
-              <p className="text-base font-bold mt-2">${product.price}</p>
+              <p className="text-base font-bold mt-2">₹ {(product.price * 83).toFixed(2)}</p>
             </div>
             <div className="w-full flex justify-center items-center">
               <button className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
@@ -100,7 +100,7 @@ const ProductFeed = () => {
               </span>
             </div>
             <div className="w-[100%]">
-              <p className="text-base font-bold mt-2">${product.price}</p>
+              <p className="text-base font-bold mt-2">₹ {(product.price * 83).toFixed(2)}</p>
             </div>
             <div className="w-full flex justify-center items-center">
               <button className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
@@ -147,7 +147,7 @@ const ProductFeed = () => {
               </span>
             </div>
             <div className="w-[100%]">
-              <p className="text-base font-bold mt-2">${product.price}</p>
+              <p className="text-base font-bold mt-2">₹ {(product.price * 83).toFixed(2)}</p>
             </div>
             <div className="w-full flex justify-center items-center">
               <button className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
@@ -190,7 +190,7 @@ const ProductFeed = () => {
               </span>
             </div>
             <div className="w-[100%]">
-              <p className="text-base font-bold mt-2">${product.price}</p>
+              <p className="text-base font-bold mt-2">₹ {(product.price * 83).toFixed(2)}</p>
             </div>
             <div className="w-full flex justify-center items-center">
               <button className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
@@ -233,7 +233,7 @@ const ProductFeed = () => {
               </span>
             </div>
             <div className="w-[100%]">
-              <p className="text-base font-bold mt-2">${product.price}</p>
+              <p className="text-base font-bold mt-2">₹ {(product.price * 83).toFixed(2)}</p>
             </div>
             <div className="w-full flex justify-center items-center">
               <button className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
