@@ -5,26 +5,37 @@ import { app } from "../../utils/fireBase";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 const SignIn = () => {
-  const [userId, setUserId] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [idPass, setIdPass] = useState({
+    email: "",
+    password: "",
+  });
   const navigate = useNavigate();
-
-  const getLogIn = e => {
-    e.preventDefault();
-    if (userId === "" || password === "") {
-      toast.error("Fill both Credentials");
-    } else if (!app.signInWithEmailAndPassword(userId, password)) {
-      toast.error("Wrong Credentials");
-    } else {
-      app
-        .signInWithEmailAndPassword(userId, password)
-        .then(i => {
-          navigate("/"), toast.success("Welcome😊");
-        })
-        .catch(e => console.log(e));
+  const handleLogin = () => {
+    const { email, password } = idPass;
+    const auth = getAuth();
+    if (!email.trim()) {
+      toast.error("Email is blank");
+      return;
     }
+    if (!password.trim()) {
+      toast.error("Password is blank");
+      return;
+    }
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        navigate("/browser");
+        const user = userCredential.user;
+        console.log("User logged in:", user);
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error("Login error:", errorCode, errorMessage);
+        toast.error(errorMessage);
+      });
   };
+
   return (
     <div className="h-screen w-screen flex justify-center items-center">
       <div className="h-96 w-96 border-2 flex flex-col justify-center items-center bg-slate-100 rounded-xl">
@@ -34,24 +45,28 @@ const SignIn = () => {
             type="text"
             className="my-3 h-10 w-2/3 border-2 rounded-md text-center"
             placeholder="Email-ID"
-            value={userId}
-            onChange={e => setUserId(e.target.value)}
+            value={idPass.email}
+            onChange={e => setIdPass({ ...idPass, email: e.target.value })}
+            required
           />
           <input
             type="password"
             className="my-3 h-10 w-2/3 border-2 rounded-md text-center"
             placeholder="Password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
+            value={idPass.password}
+            onChange={e => setIdPass({ ...idPass, password: e.target.value })}
+            required
           />
         </div>
         <button
-          onClick={getLogIn}
+          onClick={handleLogin}
           className="h-9 bg-amber-300 w-52  text-xl font-bold hover:bg-amber-500">
           Sign In
         </button>
         <div>
-          <button className="h-9 bg-white w-64 mt-5 text-md font-semibold hover:border-black border-2">
+          <button
+            onClick={() => navigate("/signUp")}
+            className="h-9 bg-white w-64 mt-5 text-md font-semibold hover:border-black border-2">
             Create your Amazon account
           </button>
         </div>
@@ -68,7 +83,6 @@ const SignIn = () => {
         pauseOnHover
         theme="light"
         transition={Bounce}
-        // transition: Bounce,
       />
     </div>
   );

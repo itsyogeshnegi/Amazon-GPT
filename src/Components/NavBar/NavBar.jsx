@@ -1,6 +1,20 @@
 import React from "react";
-
+import { getAuth, signOut } from "firebase/auth";
+import { getDatabase } from "firebase/database";
+import { app } from "../../utils/fireBase";
 const NavBar = () => {
+  const database = getDatabase(app);
+  const auth = getAuth(app);
+
+  const signOutHandle = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+      })
+      .catch(error => {
+        console.error("Error signing out:", error);
+      });
+  };
   return (
     <>
       <div className="h-14 w-[100%] bg-slate-900 flex items-center justify-around">
@@ -38,13 +52,13 @@ const NavBar = () => {
           />
         </div>
         <div className="cursor-pointer max-md:hidden">
-          <h1 className="text-white font-bold flex flex-col leading-4 max-md:hidden">
-            <span className="font-extralight">Hello, Yogesh Negi</span>
+          <h1 className="text-white font-bold flex flex-col leading-5 max-md:hidden">
+            <span className="font-extralight">Hello, Dude</span>
             Account & Lists
           </h1>
         </div>
         <div>
-          <h1 className="text-white font-bold flex flex-col cursor-pointer leading-4">
+          <h1 className="text-white font-bold flex flex-col cursor-pointer leading-5">
             <span className="font-extralight">Return</span>& Order
           </h1>
         </div>
@@ -68,13 +82,16 @@ const NavBar = () => {
             Cart
           </h1>
         </div>
+        <div className="text-white font-bold cursor-pointer flex flex-col">
+          <img src="/Logos/turn-off.png" className="h-7" title="Log-Out" onClick={signOutHandle} />
+        </div>
       </div>
-      <div className=" flex p-2 pl-6 bg-slate-700 items-center text-white h-9 space-x-4 cursor-pointer">
+      <div className="text-sm flex p-2 pl-6 bg-slate-800 items-center text-white h-9 space-x-4 cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          strokeWidth={1.5}
+          strokeWidth={1.4}
           stroke="currentColor"
           className="w-6 h-6">
           <path
@@ -84,18 +101,18 @@ const NavBar = () => {
           />
         </svg>
         All
-        <p className="link">Prime Video</p>
-        <p className="link">Today's Deal</p>
-        <p className="link">Amazon Pay</p>
-        <p className="link hidden lg:inline-flex">Fresh</p>
-        <p className="link hidden lg:inline-flex">Sell</p>
-        <p className="link hidden lg:inline-flex">Mobiles</p>
-        <p className="link hidden lg:inline-flex">Buy Again</p>
-        <p className="link hidden lg:inline-flex">Gift Cards</p>
-        <p className="link hidden lg:inline-flex">Subscribe & Save</p>
-        <p className="link hidden lg:inline-flex">Coupons</p>
-        <p className="link hidden lg:inline-flex">Browsing History</p>
-        <p className="link hidden lg:inline-flex">Customer Service</p>
+        <p className="link text-smchidden lg:inline-flex">Prime Video</p>
+        <p className="link text-sm hidden lg:inline-flex">Today's Deal</p>
+        <p className="link text-sm hidden lg:inline-flex">Amazon Pay</p>
+        <p className="link text-sm">Fresh</p>
+        <p className="link text-sm hidden lg:inline-flex">Sell</p>
+        <p className="link text-sm hidden lg:inline-flex">Mobiles</p>
+        <p className="link text-sm hidden lg:inline-flex">Buy Again</p>
+        <p className="link text-sm hidden lg:inline-flex">Gift Cards</p>
+        <p className="link text-sm hidden lg:inline-flex">Subscribe & Save</p>
+        <p className="link text-sm">Coupons</p>
+        <p className="link text-sm hidden lg:inline-flex">Browsing History</p>
+        <p className="link text-sm hidden lg:inline-flex">Customer Service</p>
       </div>
     </>
   );
