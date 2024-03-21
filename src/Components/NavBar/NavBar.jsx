@@ -3,10 +3,13 @@ import { getAuth, signOut } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 import { app } from "../../utils/fireBase";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectItems } from "../../Store/AddToCartSlice";
 const NavBar = () => {
   const database = getDatabase(app);
   const auth = getAuth(app);
   const navigate = useNavigate();
+  const item = useSelector(selectItems);
 
   const signOutHandle = () => {
     signOut(auth)
@@ -53,7 +56,7 @@ const NavBar = () => {
         </div>
         <div className="text-white font-bold cursor-pointer flex justify-center items-center">
           <p className="leading-3" onClick={() => navigate("/cart")}>
-            0
+            {item.length}
             <img src="/Logos/cart.png" className="h-7" />
           </p>
         </div>

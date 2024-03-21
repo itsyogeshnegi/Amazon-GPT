@@ -7,7 +7,9 @@ const useGetProducts = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const response = await axios.get("https://fakestoreapi.com/products");
+        const response = await axios.get(
+          "https://api.escuelajs.co/api/v1/products"
+        );
         console.log(response.data);
         setProducts(response.data);
       } catch (error) {
