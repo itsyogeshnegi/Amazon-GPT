@@ -1,4 +1,6 @@
-import React from "react";
+import { Button, Modal } from "flowbite-react";
+import { useState } from "react";
+import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { getAuth, signOut } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 import { app } from "../../utils/fireBase";
@@ -10,15 +12,20 @@ const NavBar = () => {
   const auth = getAuth(app);
   const navigate = useNavigate();
   const item = useSelector(selectItems);
+  const [openModal, setOpenModal] = useState(false);
 
   const signOutHandle = () => {
-    signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
-      .catch(error => {
-        console.error("Error signing out:", error);
-      });
+    try {
+      signOut(auth)
+        .then(() => {
+          navigate("/");
+        })
+        .catch(error => {
+          console.error("Error signing out:", error);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
@@ -65,7 +72,7 @@ const NavBar = () => {
             src="/Logos/turn-off.png"
             className="h-7"
             title="Log-Out"
-            onClick={signOutHandle}
+            onClick={() => setOpenModal(true)}
           />
         </div>
       </div>
@@ -97,6 +104,29 @@ const NavBar = () => {
         <p className="link text-sm hidden lg:inline-flex">Browsing History</p>
         <p className="link text-sm hidden lg:inline-flex">Customer Service</p>
       </div>
+      <Modal
+        show={openModal}
+        size="md"
+        onClose={() => setOpenModal(false)}
+        popup>
+        <Modal.Header />
+        <Modal.Body>
+          <div className="text-center">
+            <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-gray-400 dark:text-gray-200" />
+            <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+              Are you sure you want to Sign Out from this Site?
+            </h3>
+            <div className="flex justify-center gap-4">
+              <Button color="failure" onClick={signOutHandle}>
+                {"Yes, I'm sure"}
+              </Button>
+              <Button color="gray" onClick={() => setOpenModal(false)}>
+                No, cancel
+              </Button>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
     </>
   );
 };
