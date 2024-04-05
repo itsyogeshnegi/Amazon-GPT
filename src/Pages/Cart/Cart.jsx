@@ -13,8 +13,9 @@ const Cart = () => {
   const deleteItem = item => {
     dispatch(removeFromBasket(item));
   };
-
-  console.log(basket);
+  const totalAmount = basket
+    .reduce((total, item) => total + item.price * 83, 0)
+    .toFixed(2);
 
   return (
     <>
@@ -24,6 +25,7 @@ const Cart = () => {
           <img src="/Banners/cartBanner.jpg" style={{ objectFit: "contain" }} />
           <div className="flex flex-col p-5 space-y-10 bg-white">
             <h1 className="text-2xl border-b pb-4 font-semibold">
+              <p>Total Amount: ₹ {totalAmount}</p>
               {items.length === 0
                 ? " Your Shopping Cart Is Empty"
                 : "Your Shopping Cart"}
