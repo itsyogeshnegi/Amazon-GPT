@@ -1,17 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  items: [],
-};
-
 export const basketSlice = createSlice({
   name: "basket",
-  initialState,
+  initialState: {
+    items: [],
+  },
   reducers: {
     addToBasket: (state, action) => {
       state.items = [...state.items, action.payload];
     },
-    removeFromBasket: (state, action) => {},
+    removeFromBasket: (state, action) => {
+      const indexToRemove = state.items.findIndex(
+        item => item.id === action.payload.id
+      );
+      if (indexToRemove !== -1) {
+        state.items.splice(indexToRemove, 1);
+      }
+    },
   },
 });
 

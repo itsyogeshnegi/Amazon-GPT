@@ -2,10 +2,19 @@ import React from "react";
 import NavBar from "../../Components/NavBar/NavBar";
 import { useSelector } from "react-redux";
 import { selectItems } from "../../Store/AddToCartSlice";
+import { removeFromBasket } from "../../Store/AddToCartSlice";
+import { useDispatch } from "react-redux";
 
 const Cart = () => {
   const items = useSelector(selectItems);
-  const basket = useSelector(state => state.basket);
+  const basket = useSelector(state => state.basket.items);
+  const dispatch = useDispatch();
+
+  const deleteItem = item => {
+    dispatch(removeFromBasket(item));
+  };
+
+  console.log(basket);
 
   return (
     <>
@@ -19,8 +28,25 @@ const Cart = () => {
                 ? " Your Shopping Cart Is Empty"
                 : "Your Shopping Cart"}
             </h1>
-            {Array.isArray(basket) && basket.map((item, index) => (
-              <div key={index} className="bg-slate-500"></div>
+            {basket.map((item, index) => (
+              <div key={index} className="bg-slate-500">
+                <div className="py-4 px-2 bg-[whitesmoke] w-full flex justify-between items-center">
+                  <div>
+                    <img src={item.images} className="h-28" />
+                  </div>
+                  <div>
+                    <p className="px-20">{item.title}</p>
+                  </div>
+                  <div>₹ {(item.price * 83).toFixed(2)}</div>
+                  <div>
+                    <button
+                      className="bg-red-700 text-white p-2 rounded-lg"
+                      onClick={() => deleteItem(item)}>
+                      Delete Item
+                    </button>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>

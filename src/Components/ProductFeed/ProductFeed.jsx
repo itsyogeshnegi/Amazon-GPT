@@ -29,8 +29,8 @@ const ProductFeed = () => {
   };
   const dispatch = useDispatch();
 
-  const addItem = () => {
-    dispatch(addToBasket(productData));
+  const addItem = data => {
+    dispatch(addToBasket(data));
   };
 
   return (
@@ -76,7 +76,7 @@ const ProductFeed = () => {
             </div>
             <div className="w-full flex justify-center items-center">
               <button
-                onClick={addItem}
+                onClick={() => addItem(product)}
                 className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
                 Add to basket
               </button>
@@ -124,7 +124,7 @@ const ProductFeed = () => {
             </div>
             <div className="w-full flex justify-center items-center">
               <button
-                onClick={addItem}
+                onClick={()=>addItem(product)}
                 className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
                 Add to basket
               </button>
@@ -178,7 +178,7 @@ const ProductFeed = () => {
             </div>
             <div className="w-full flex justify-center items-center">
               <button
-                onClick={addItem}
+                onClick={()=>addItem(product)}
                 className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
                 Add to basket
               </button>
@@ -228,7 +228,7 @@ const ProductFeed = () => {
             </div>
             <div className="w-full flex justify-center items-center">
               <button
-                onClick={addItem}
+                onClick={()=>addItem(product)}
                 className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
                 Add to basket
               </button>
@@ -278,7 +278,7 @@ const ProductFeed = () => {
             </div>
             <div className="w-full flex justify-center items-center">
               <button
-                onClick={addItem}
+                onClick={()=>addItem(product)}
                 className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
                 Add to basket
               </button>
@@ -326,7 +326,7 @@ const ProductFeed = () => {
             </div>
             <div className="w-full flex justify-center items-center">
               <button
-                onClick={addItem}
+                onClick={()=>addItem(product)}
                 className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
                 Add to basket
               </button>
@@ -380,7 +380,7 @@ const ProductFeed = () => {
             </div>
             <div className="w-full flex justify-center items-center">
               <button
-                onClick={addItem}
+                onClick={()=>addItem(product)}
                 className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
                 Add to basket
               </button>
@@ -430,7 +430,7 @@ const ProductFeed = () => {
             </div>
             <div className="w-full flex justify-center items-center">
               <button
-                onClick={addItem}
+                onClick={()=>addItem(product)}
                 className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
                 Add to basket
               </button>
@@ -478,7 +478,7 @@ const ProductFeed = () => {
             </div>
             <div className="w-full flex justify-center items-center">
               <button
-                onClick={addItem}
+                onClick={()=>addItem(product)}
                 className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
                 Add to basket
               </button>
@@ -532,7 +532,7 @@ const ProductFeed = () => {
             </div>
             <div className="w-full flex justify-center items-center">
               <button
-                onClick={addItem}
+                onClick={()=>addItem(product)}
                 className="h-8 w-[100%] bg-yellow-500 hover:bg-yellow-400 text-white font-semibold flex justify-center items-center ">
                 Add to basket
               </button>
